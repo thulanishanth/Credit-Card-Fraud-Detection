@@ -34,3 +34,18 @@ cd Credit-Card-Fraud-Detection
 pip install -r requirements.txt
 python src/model_training.py
 python deployment/app.py
+
+
+Dataset Download Instructions
+
+🧾 1️⃣ Dataset: data/creditcard.csv
+
+You can download the real dataset (used by thousands of ML learners) from Kaggle:
+
+🔗 Credit Card Fraud Detection Dataset (Kaggle)
+
+After download:
+
+File name: creditcard.csv
+
+Place it in your data/ folder.
