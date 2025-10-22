@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Fraud Detection</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            padding: 30px 50px;
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #666;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            transition: 0.2s ease-in-out;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .legit {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .fraud {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        footer {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💳 Credit Card Fraud Detection</h1>
+        <p>Enter transaction details to check if it’s fraudulent or legitimate.</p>
+
+        <form action="/predict" method="post">
+            <!-- Example: 5 input fields (for demo) -->
+            <input type="text" name="feature1" placeholder="Feature 1" required><br>
+            <input type="text" name="feature2" placeholder="Feature 2" required><br>
+            <input type="text" name="feature3" placeholder="Feature 3" required><br>
+            <input type="text" name="feature4" placeholder="Feature 4" required><br>
+            <input type="text" name="feature5" placeholder="Feature 5" required><br>
+
+            <button type="submit">🔍 Predict</button>
+        </form>
+
+        {% if prediction_text %}
+            <div class="result {% if 'Legitimate' in prediction_text %}legit{% else %}fraud{% endif %}">
+                {{ prediction_text }}
+            </div>
+        {% endif %}
+
+        <footer>
+            <p>Developed by <b>AI ML Mini Project</b> • Flask + ML + HTML</p>
+        </footer>
+    </div>
+</body>
+</html>
